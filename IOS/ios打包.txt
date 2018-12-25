@@ -1,0 +1,81 @@
+﻿mac-os
+java:http://www.oracle.com/technetwork/java/javase/downloads/jdk-netbeans-jsp-142931.html
+xcode:
+检查是否安装xcode
+xcode-select --install
+https://download.developer.apple.com/Developer_Tools/Xcode_8.1/Xcode_8.1.xip
+
+rvm安装命令：
+curl -L get.rvm.io | bash -s stable
+指定源
+source ~/.rvm/scripts/rvm
+列出已知的ruby版本
+rvm list known
+安装rvm 2.0.0版本
+rvm install 2.0.0
+
+homebrew 
+macOS 缺失的软件包管理器
+安装：https://brew.sh/index_zh-cn.html
+具体报错
+fatal: The remote end hung up unexpectedly
+error: RPC failed; curl 18 transfer closed with outstanding read data remaining
+解决方案
+git config --global http.postBuffer 524288000
+git config --global http.postBuffer 114288000
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+
+ruby:
+ruby -v
+
+
+fastlane:
+sudo gem install fastlane
+
+CocoaPods：
+gem install cocoapods
+xcode环境
+开发者账号未登入
+Code signing is required for product type 'Application' in SDK 'iOS 10.1'
+
+
+=== invalid byte sequence in US-ASCII
+编码问题
+vim ~/.bashrc
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+
+== sh: /usr/local/bin/xcpretty: /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby: bad interpreter: No such file or directory
+原因：找不到ruby目标执行文件
+正解：修改环境变量
+vim /usr/local/bin/xcpretty
+
+== Xcode Command /usr/bin/codesign failed with exit code 1 : errSecInternalComponent
+原因：
+正解：https://stackoverflow.com/questions/24023639/xcode-command-usr-bin-codesign-failed-with-exit-code-1-errsecinternalcomponen
+运行：security unlock-keychain login.keychain 输入密码（这个会把本地的证书删掉）
+
+
+== Code Signing Error: Code signing is required for product type 'Application' in SDK 'iOS 11.4'
+本地没有证书，需要下载
+https://blog.csdn.net/lxl20052051/article/details/18701177
+
+
+== clang: error: linker command failed with exit code 1 (use -v to see invocation)
+use 'svn update' as much as possible
+always check out a fresh copy
+do not touch working copy,it is updated by other script
+emulate clean checkout by frist deleting unversioned/ignored files,then 'svn update'
+use 'svn update' as much as possible,with 'svn revert' before update
+
+===
+xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+xcode 没安装
+===
+Could not find proper version of fastlane (2.92.1) in any of the sources
+
+sudo gem install -n /usr/local/bin/ fastlane --version 2.92.1

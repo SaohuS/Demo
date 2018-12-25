@@ -1,0 +1,13 @@
+mac SVN 操作指导
+##检出
+svn checkout svn://172.16.35.94/OFL_DOC_SVN/trunk
+
+1.进入到 trunk 目录
+cd Desktop/trunk
+2.将文件放入相应目录下面
+
+3.将文件加入本地
+svn add * --force 
+
+4.将文件上传到SVN服务器
+svn commit -m "提交信息"

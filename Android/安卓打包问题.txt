@@ -1,0 +1,31 @@
+
+===   > You have not accepted the license agreements of the following SDK components: =====
+原因：没有同意SDK
+android list sdk --all
+android update sdk -u -a -t 3
+
+===   Error:Unable to find method ‘com.android.build.gradle.tasks.factory.AndroidJavaCompile.setDependencyCacheDir(Ljava/io/File;)V’. 
+原因：gradle版本太高
+解决办法：修改到 gradle-3.3
+
+===        > Could not resolve com.twitter.sdk.android:twitter:1.4.0.
+原因：不能翻墙
+解决办法：注释该段依赖
+
+
+===   Could not find method google() for arguments [] on repository container.
+gradle 版本问题
+解决办法：升级gradle版本
+
+===   SDK Patch Applier v4, Google Repository
+204
+
+===   动态权限
+../../src/main/java/com/suneee/demo/scan/ScanQRActivity.java:415: Missing permissions required by Vibrator.vibrate: android.permission.VIBRATE
+412         }
+ 413         if (vibrate) {
+ 414             Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+ 415             vibrator.vibrate(VIBRATE_DURATION);
+
+ 416         }
+ 417     }

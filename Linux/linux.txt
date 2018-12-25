@@ -1,0 +1,155 @@
+# 清理 21天之前的无效数据
+find /home/lifeccp/dicom/studies -mtime +21 -name "*.*" -exec rm -Rf {} \;
+find .
+*/5 9-17 * * 1-5 flock -en /var/run/rsync_Y1.lock -c "/usr/bin/rsync -auzP /mnt/Y1_CRUDEDATA/* /data/Y1_CRUDEDATA_up/ >/dev/null 2>&1"
+
+# 最后一次开机时间
+who -b
+
+# 进程查看
+ps -ef|grep xxx 
+ps -aux|grep xxx
+ps aux
+
+# 查看当前目录下的文件数量（不包含子目录中的文件）
+
+ls -l|grep "^-"| wc -l
+# 查看当前目录下的文件数量（包含子目录中的文件） 注意：R，代表子目录
+
+ls -lR|grep "^-"| wc -l
+# 查看当前目录下的文件夹目录个数（不包含子目录中的目录），同上述理，如果需要查看子目录的，加上R
+
+ls -l|grep "^d"| wc -l
+# 查询当前路径下的指定前缀名的目录下的所有文件数量
+# 例如：统计所有以“20161124”开头的目录下的全部文件数量
+
+ls -lR 20161124*/|grep "^-"| wc -l
+
+# 后台运行
+./test.sh &
+
+# 文件按照从大到小的方式排序
+du -sh * | sort -nr 
+
+# 发送和上传
+工具lrzsz-0.12.20
+sz
+rz 
+
+# 实时查看日志文件
+tail -f -n 20 filename
+
+
+一月：January
+二月：February
+三月：March
+四月：April
+五月：May
+六月：June
+七月：July
+八月：August
+九月：September
+十月：October
+十一月：November
+十二月：December
+
+# 程序运行状态
+D    不可中断     Uninterruptible sleep (usually IO)
+    R    正在运行，或在队列中的进程
+    S    处于休眠状态
+    T    停止或被追踪
+    Z    僵尸进程
+    W    进入内存交换（从内核2.6开始无效）
+    X    死掉的进程
+
+
+    <    高优先级
+    N    低优先级
+    L    有些页被锁进内存
+    s    包含子进程
+    +    位于后台的进程组；
+    l    多线程，克隆线程  multi-threaded (using CLONE_THREAD, like NPTL pthreads do)
+	
+	
+yum list
+# 查看运行内容
+cat /proc/meminfo |grep MemTotal
+
+# 查看CPU
+cat /proc/cpuinfo |grep "model name" && cat /proc/cpuinfo |grep "physical id"
+cat /proc/cpuinfo
+
+# 可查看最近的crontab执行情况
+tail -f /var/spool/mail/root 即
+
+
+# nginx -s reload  ：修改配置后重新加载生效
+
+# 查找文件时间
+ls --full-time . | sed -n '/2018-09-20/p'
+
+# 查看Linux 版本
+cat /etc/redhat-release
+
+1. 查看物理CPU的个数
+#cat /proc/cpuinfo |grep "physical id"|sort |uniq|wc -l
+2. 查看逻辑CPU的个数
+#cat /proc/cpuinfo |grep "processor"|wc -l
+3. 查看CPU是几核
+#cat /proc/cpuinfo |grep "cores"|uniq
+4. 查看CPU的主频
+#cat /proc/cpuinfo |grep MHz|uniq
+
+
+# 查看文件个数
+"^d" 目录
+ls -l|grep "^-"| wc -l 
+ls -lR|grep "^-"| wc -l （包含子文件和文件夹）
+
+/data/Y1_CRUDEDATA_up/2.16.840.1.114492.13777454333330444454.206205314572.2704.402/
+
+# 查看进程开销
+ps -fp 8237
+top 
+
+# 开机启动任务
+vim /etc/rc.local
+chmod +x /etc/rc.d/rc.local
+
+tar -zxvf
+tar -zcvf 打包后生成的文件名全路径 要打包的目录
+# 清理20天之前无效数据
+find /home/lifeccp/dicom/studies -mtime +21 -name "*.*" -exec rm -Rf {} \;
+find -type f −newermt′2018−09−2900:00′−a−not−newermt′2018−09−2923:59′
+find -type f \( −newer -mt ′2018−09−28 00:00′ −a −not −newer -mt ′2018−09−28 23:59′ \)
+find -type f −newer mt ′2018−09−28 00:00′ −a −not −newer mt ′2018−09−28 23:59′
+touch -t 201809280000 t_start;touch -t 201809282359.59 t_end;find . -type f -newer t_start ! -newer t_end | xargs ls -l | grep -v "t_start\|t_end";rm -f t_start;rm -f t_end;
+以分钟为单位的时间范围查找
+与atime,ctime,mtime类似，对应的参数为amin, cmin,mmin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

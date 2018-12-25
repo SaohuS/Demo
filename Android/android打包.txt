@@ -1,0 +1,234 @@
+
+===   > You have not accepted the license agreements of the following SDK components: =====
+原因：没有同意SDK
+android list sdk --all
+android update sdk -u -a -t 3
+
+===   Error:Unable to find method ‘com.android.build.gradle.tasks.factory.AndroidJavaCompile.setDependencyCacheDir(Ljava/io/File;)V’. 
+      > com.android.build.gradle.tasks.factory.AndroidJavaCompile.setDependencyC
+acheDir(Ljava/io/File;)V
+原因：gradle版本太高；distributionUrl是指定gradle的版本, Android Studio里会指定gradle插件的版本com.android.tools.build:gradle:2.2.3,
+ 而gradle插件的版本又会影响你的build脚本(方法的有无和废弃). 所以这三者要对应起来才能正常运行. 
+解决版本1：修改项目build.gradle dependencies {classpath 'com.android.tools.build:gradle:2.3.0'}
+解决办法2：将本地gradle版本修改到 gradle-3.3 
+
+
+===        > Could not resolve com.twitter.sdk.android:twitter:1.4.0.
+原因：不能翻墙
+解决办法1：注释该段依赖
+解决办法2：修改版本号 3.1.1,；
+
+===   maven.aliyun.com: 未知的名称或服务  下载gradle 3.1.4报错
+原因：镜像站关闭了或者地址更新了
+解决版本1：修改 ~/.m2/setting.xml 文件 mirror 的 url 
+
+===   Could not find method google() for arguments [] on repository container.
+gradle 版本问题
+gradle-4.1
+
+解决办法1：升级gradle版本
+解决办法2：注释google()
+
+===   SDK Patch Applier v4, Google Repository
+204
+202
+
+===   动态权限
+../../src/main/java/com/suneee/demo/scan/ScanQRActivity.java:415: Missing permissions required by Vibrator.vibrate: android.permission.VIBRATE
+412         }
+ 413         if (vibrate) {
+ 414             Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+ 415             vibrator.vibrate(VIBRATE_DURATION);
+
+ 416         }
+ 417     }
+
+ 
+ ===  gradlew  一个gradle的封装体，即使电脑上没有安装gradle也能构建
+ 
+ 
+ ===  “your project path contains non-ascii characters”问题（android studio不支持中文路径问题）
+ 根目录不能为中文
+ 
+ === 象翌象谱
+ 生产环境文件修改
+ src/com/xiangpu/utils/UrlInterfaceUtils.java UrlInterfaceUtils 
+     // 应用环境(false:正式环境，true:测试环境)
+    private static final boolean is_debug = true;
+ res/values/string.xml api_env
+     <!--1、生产环境 2、测试环境 3、本地环境-->
+    <string name="api_env">Android2</string>
+ === 宁家鲜生.
+ src/com/xiangpu/common/Constants.java
+ 
+ 
+ 
+ === java.lang.NullPointerException (no error message)
+ https://stackoverflow.com/questions/40108471/java-lang-nullpointerexception-no-error-message-apk-building
+ 
+ === com.android.ide.common.process.ProcessException: Failed to execute aapt
+ 原因：在build.gradle文件中，
+出现这种错误原因是因为buildToolsVersion、buildToolsVersion、compileSdkVersion、targetSdkVersion、compile 'com.android.support:appcompat-v7:xxx'不一致。
+compileSdkVersion 25
+buildToolsVersion 26.0.3不匹配
+targetSdkVersion 23
+解决：
+将 compileSdkVersion 和buildToolsVersion  targetSdkVersion
+compile 'com.android.support:appcompat-v7:xxx'改成一致
+=== java.io.IOException: Please correct the above warnings first.
+
+问题描述：
+1、如果不使用混淆，那么可以正常打包，并且运行也正常
+2、如果使用混淆，则打包报错
+3、在proguard中忽略所有的警告，则打包成功，但运行即报错（至于报什么错没看，因为这样根本不是解决之道）
+      // 在gradle使用minifyEnabled进行Proguard混淆的配置，可大大减小APP大小
+      minifyEnabled true
+      // 开启shrinkResources去除无用资源
+      //shrinkResources true
+
+	  
+	  adb install
+=== Could not find com.android.support:appcompat-v7:26.1.0.
+问题描述：
+build.gradle maven 中心库地址问题
+解决办法：
+1.尝试google Maven存储库添加到应用的build.gradle文件中：
+repositories {
+    maven { url "https://maven.google.com" }
+}
+2. 修改com.android.support:appcompat-v7:26.1.0 版本 26.0.0
+
+=== Android studio 混淆打包时，出现Error:Execution failed for task ':app:proguardRelease'.
+问题描述：> java.io.IOException: Please correct the above warnings first.
+
+解决办法：
+打开proguard-rules.txt，加入-dontwarn org.apache.http.**即可。
+
+
+=== You have not accepted the license agreements of the following SDK components:
+  [ConstraintLayout for Android 1.0.2, Solver for ConstraintLayout 1.0.2].
+解决办法：
+sdk管理工具sdkmanager.位于$ANDROID_HOME/tools/bin/sdkmanager
+sdkmanager --list
+sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+
+
+21：
+
+ Error:Could not create service of type FileCollectionSnapshotterRegistry using TaskExecutionServices.createFileCollectionSnapshotterRegistry().
+> Could not create service of type CachingFileHasher using TaskExecutionServices.createFileSnapshotter(). 
+解决方法：删除项目根目录下的.gradle文件夹即可
+
+
+Failed to resolve: com.twitter.sdk.android:twitter:1.4.0
+
+
+=== Minimum supported Gradle version is 4.1. Current version is 3.3
+
+
+=== Could not find method implementation() for arguments
+	把build.gradle中的dependencies中的
+implementation改为compile即可
+
+
+=== Could not find runtime.jar (android.arch.lifecycle:runtime:1.0.0)
+
+./gradle删掉重新编译，一切正常。
+
+描述 下载文件不存在，gradle 版本问题
+解决方法：  gradle -version 升级到4.4以上
+
+=== Failed to apply plugin [id 'com.android.application']
+
+=== Deprecated Gradle features were used in this build, making it incompatible with Gradle 5.0.
+
+=== Could not resolve com.facebook.android:facebook-android-sdk:4. .
+compile 'com.facebook.android:audience-network-sdk:4.13.0'
+
+2.buildscript {
+    repositories {
+	maven {	url "https://download.01.org/crosswalk/releases/crosswalk/android/maven2/" }
+	
+=== Could not find method api() for arguments [com.facebook.fresco:fresco:1.4.0]
+=== Could not resolve com.facebook.android:facebook-android-sdk:4.+.
+1.maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+2.修改cordova-plugin-crosswalk-webview/chat-xwalk.gradle
+		
+=== Could not create service of type ScriptPluginFactory
+1.删除 .gradle 文件 
+
+
+===   abortOnError false
+//代码不符合规范，lint检查时报错，因此中断了整个编译过程；取消lint报错中断
+加入此行代码
+android {
+      lintOptions {
+          abortOnError false
+      }
+  }
+  
+  
+===    All flavors must now belong to a named flavor dimension
+
+===    告警Warning:The `android.dexOptions.incremental` property is deprecated and it has；
+
+dexOptions { incremental true }
+
+=== Could not resolve com.sina.weibo.sdk:core:4.2.7
+maven { url "https://dl.bintray.com/thelasterstar/maven" }
+
+=== Could not resolve com.amap.api:3dmap:latest.integration..
+引入最新版本的SDK
+compile 'com.amap.api:3dmap:5.0.0'
+compile 'com.amap.api:location:3.3.0'
+compile 'com.amap.api:search:5.0.0'
+
+=== Could not resolve com.umeng.analytics:analytics:latest.integration.
+	compile 'com.umeng.analytics:analytics:5.4.1'
+
+===  version `GLIBC_2.14' not found
+查看GLIBC支持版本 strings /lib64/libc.so.6 |grep GLIBC_
+
+wget http://mirrors.ustc.edu.cn/gnu/libc/glibc-2.14.1.tar.xz
+安装1 https://www.linuxidc.com/Linux/2017-01/139806.htm
+或者升级1 https://www.linuxidc.com/Linux/2015-04/116472.htm
+
+=== Could not resolve com.tencent.bugly:crashreport:latest.release.
+repositories:
+maven { url "http://maven.aliyun.com/nexus/content/repositories/central/" }
+maven { url "http://maven.aliyun.com/nexus/content/repositories/releases" }
+=== Gradle build daemon disappeared unexpectedly (it may have been killed or may have crashed)
+Gradle 守护进程
+#禁用gradle守护进程
+org.gradle.daemon=false
+
+
+=== Could not find com.android.tools.build:gradle:3.0.1	
+=== Could not find org.jetbrains.trove4j:trove4j:20160824.
+buildscript {
+    repositories {
+        google()		//加入此行
+		jcenter()		//加入此行
+		
+=== Could not get unknown property 'cdvBuildToolsVersio' for object of type com.android.build.gradle.LibraryExtension.
+
+
+=== Could not resolve com.github.FacePlusPlus:MegviiLicMgr-Android-SDK:0.3.0.
+注释该段依赖
+
+=== Could not resolve com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+.
+buildscript {
+maven { url "http://maven.aliyun.com/nexus/content/repositories/jcenter/"}
+
+
+=== Your project path contains non-ASCII characters.
+
+
+
+--- Could not find method google() for arguments [] on object of type org.gradle.api.internal.initialization.DefaultScriptHandler.
+
+=== Could not resolve com.aliyun.ams:alicloud-android-push:3.0.11
+maven { http://maven.aliyun.com/nexus/content/repositories/releases/ }
+
+
+=== mvn deploy:deploy-file -DgroupId=com.suneee -DartifactId=module_mc_link-release -Dversion=1.0.0-SNAPSHOT -Dpackaging=aar -Dfile=G:\11\BoX.A_Component_Android\module_mc_link-release.aar -Durl=http://172.16.43.134:8081/content/repositories/snapshots/ -DrepositoryId=snapshots

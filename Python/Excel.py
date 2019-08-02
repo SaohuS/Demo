@@ -24,7 +24,7 @@ def init():
 def add_data(PejectName,Version_Name,SvnCode,Svn_VERSION,Change_INFO,RequestAuth,Release_Auth,ChangeYesNo):
     init()
     date = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
-    print date
+    print (date)
     data = xlrd.open_workbook(u"版本发布说明书.xls")
     nrows = data.sheet_by_index(0).nrows
     new_excel = xlutils.copy.copy(data)
@@ -41,7 +41,7 @@ def add_data(PejectName,Version_Name,SvnCode,Svn_VERSION,Change_INFO,RequestAuth
     # AddNew.write(nrows,9,bak.decode('gbk'))
 
     new_excel.save(u'版本发布说明书.xls')
-    print 'Successful'
+    print ('Successful')
 
 def read_f():
     #获取一个工作表
@@ -56,22 +56,22 @@ def read_f():
     # table.col_values(i) 获取整列数值
 
     nrows = table.nrows #获取整行数
-    print nrows
+    print (nrows)
     # ncols = table.nclos 获取整列值
 
     #循环行、列 表数据
     for i in range(nrows):
-        print table.row_values(i)
+        print (table.row_values(i))
 
     #单元格
     cell_A1 = table.cell(0,0).value
     #call_B1 = table.cell(2.3).value
-    print cell_A1
+    print (cell_A1)
 
     #使用行列索引
     cell_A2 = table.row(0)[1].value
     # cell_A3 = table.col(1)[0].value
-    print cell_A2
+    print (cell_A2)
 
     #简单的写入
     # row = 0
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     # try:
         PejectName,Version_Name,SvnCode,Svn_VERSION,Change_INFO,RequestAuth,Release_Auth,ChangeYesNo = sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6],sys.argv[7],sys.argv[8]
         add_data(PejectName,Version_Name,SvnCode,Svn_VERSION,Change_INFO,RequestAuth,Release_Auth,ChangeYesNo)
-        print 'Done'
+        print ('Done')
 
     # except:
     #     print """\

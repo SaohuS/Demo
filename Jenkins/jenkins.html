@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<style>
+#header {
+	background-color: #06F;
+	color: white;
+	text-align: center;
+	padding: 5px;
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#nav {
+	line-height: none;
+	background-color: #eeeeee;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+
+	padding: 5px;
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px; 
+}
+.footer {
+	background-color: #FFFFFF;
+	color: #333;
+	clear: both;
+	text-align: left;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+#thd {
+	background-color: #FFFFFF;
+	width: 100px;
+	font-weight: bold;
+	text-align: right;
+	padding: 7px;
+	vertical-align: sub;
+	font-size: 14px;
+	color: #3c4353;
+	font-family: Microsoft YaHei;
+}
+#tdd {
+	background-color: #E0E0E0;
+	font-size: 13px;
+	font-weight: 100;
+	text-align: left;
+	font-family: sans-serif;
+	font-family: Microsoft YaHei;
+	vertical-align: sub;
+	width: 300px;
+}
+
+.pfont {
+	font-family: Microsoft YaHei;
+	}
+#font {
+	font-family: Microsoft YaHei;
+	font-size: 13px;
+	}
+#tds {
+	height: 20px;
+	width: 100px;
+}
+#font_end {
+	font-family: Microsoft YaHei;
+	font-size: 13px;
+	text-indent: 10em;
+	padding-left: 5em;
+	text-align: right;
+	}
+
+
+</style>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>爱加密</title>
+</head>
+<div id="header">
+<img src="http://www.ijiami.cn/view/images/icron_text.png" />
+</div>
+<div id="nav">
+<p class="pfont">Hi , all :</p>
+<p class="pfont">&#12288;&#12288;$JOB_NAME $VERSION 已经发布到SVN产品库，详情：</p>
+
+</div>
+
+<hr />
+<body>
+<div class="footer">
+<table id="tables" align="center">
+<tbody>
+<tr>
+<th id="thd">项目名称：</th>
+<td id="tdd">$JOB_NAME</td>
+<th id="thd">项目版本号：</th>
+<td id="tdd">$VERSION</td>
+</tr>
+<tr>
+<th id="thd">构建者：</th>
+<td id="tdd">$BUILD_USER</td>
+<th id="thd">发布者：</th>
+<td id="tdd">$PUBLISHER</td>
+</tr>
+<tr>
+<th id="thd">发布时间：</th>
+<td id="tdd">$BUILD_TIMESTAMP</td>
+<th id="thd">归档时间：</th>
+<td id="tdd">$BUILD_TIMESTAMP</td>
+</tr>
+<tr>
+<th id="thd">归档地址：</th>
+<td id="tdd"><a href="$GIT_URL"/>$SVN_ARCHIVE/$VERSION</a></td>
+</tr>
+<tr>
+<th id="thd">GIT版本号：</th>
+	<td id="tdd">
+    	<a href="$GIT_URL"/>$GIT_COMMIT</a><br/>
+        <a href="$GIT_URL_1"/>$GIT_COMMIT_1</a><br/>
+        <a href="$GIT_URL_2"/>$GIT_COMMIT_2</a>
+    </td>
+<th id="thd">禅道地址：</th>
+<td id="tdd">$ZENTAO_TEST_ID</td>
+</tr>
+<tr>
+<th id="thd">变更内容：</th>
+<td id="tdd">$CHANGE_CONTENT</td>
+
+</tr>
+<tr>
+<th id="thd">备注：</th>
+<td id="tdd">$REMARKS</td>
+
+</tr>
+<tr>
+
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+<hr/>
+<div>
+	<table align="center">
+<tbody id="font">
+			<tr>
+            	<td id="tds"><a href="">安全管理</a></td>
+                <td id="tds"><a href="">安全检测</a></td>
+            </tr>
+        </tbody>
+    <table>
+ </div>
+<p id="font_end">&copy;移动安全管理BU-CM</p>
+</html>

@@ -11,9 +11,9 @@ import sys
 #     sys.setdefaultencoding(defaultencoding)
 # print (sys.getdefaultencoding()
 # #连接数据库
-DB_NAME = 'test'
+DB_NAME = 'conf_release'
 DB_TABLE = 'TestModel_release'
-conn = pymysql.connect(host="127.0.0.1",port=3306,user="root",passwd="123456",db="test",charset='utf8')
+conn = pymysql.connect(host="172.10.3.150",port=3306,user="root",passwd="Mysql_108",db="conf_release",charset='utf8')
 cur = conn.cursor()
 
 # def getonedata(DataID):
@@ -73,13 +73,13 @@ if __name__ == "__main__":
         # CreateTable()
        
     else:
-        ZENTAO_TEST_ID,PROJECT_NAME,VERSION,CHANGE_CONTENT,RELEASE_TIME,GIT_ADDRESS,GIT_VERSION,ARCHIVE_TIME,ARCHIVE_ADDRESS,BUILDER,PUBLISHER,REMARKS = sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6],sys.argv[7],sys.argv[8],sys.argv[9],sys.argv[10],sys.argv[11],sys.argv[12]
+        ZENTAO_TEST_ID,PROJECT_NAME,VERSION,CHANGE_CONTENT,GIT_ADDRESS,GIT_VERSION,ARCHIVE_TIME,ARCHIVE_ADDRESS,BUILDER,PUBLISHER,REMARKS,RELEASE_TIME = sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4],sys.argv[5],sys.argv[6],sys.argv[7],sys.argv[8],sys.argv[9],sys.argv[10],sys.argv[11],sys.argv[12]
         #print ('---- version_content already ----')
         print ('---- Start insert data ----')
         # 插入数据 解码unicode
         # version_tb 
-        info = '''insert into TestModel_release (ZENTAO_TEST_ID,PROJECT_NAME,VERSION,CHANGE_CONTENT,RELEASE_TIME,GIT_ADDRESS,GIT_VERSION,ARCHIVE_TIME,ARCHIVE_ADDRESS,BUILDER,PUBLISHER,REMARKS)
-                values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');'''%(ZENTAO_TEST_ID,PROJECT_NAME,VERSION,CHANGE_CONTENT,RELEASE_TIME,GIT_ADDRESS,GIT_VERSION,ARCHIVE_TIME,ARCHIVE_ADDRESS,BUILDER,PUBLISHER,REMARKS)
+        info = '''insert into TestModel_release (ZENTAO_TEST_ID,PROJECT_NAME,VERSION,CHANGE_CONTENT,GIT_ADDRESS,GIT_VERSION,ARCHIVE_TIME,ARCHIVE_ADDRESS,BUILDER,PUBLISHER,REMARKS,RELEASE_TIME)
+                values ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');'''%(ZENTAO_TEST_ID,PROJECT_NAME,VERSION,CHANGE_CONTENT,GIT_ADDRESS,GIT_VERSION,ARCHIVE_TIME,ARCHIVE_ADDRESS,BUILDER,PUBLISHER,REMARKS,RELEASE_TIME)
         cur.execute(info)
         conn.commit()
         conn.close()
